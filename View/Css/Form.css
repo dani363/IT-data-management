@@ -1,0 +1,195 @@
+/* Version: 1.2 - Optimizado para rendimiento GPU */
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+div,
+form,
+input,
+select {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 15px 0 4px;
+    font-weight: 400;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px #ccc;
+    animation: slideIn 0.4s ease-out;
+    transform: translateZ(0);
+    /* Crea capa GPU solo cuando sea necesario */
+}
+
+span {
+    color: red;
+}
+
+.small {
+    font-size: 10px;
+    line-height: 18px;
+}
+
+.testbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 3px;
+}
+
+input,
+select,
+textarea {
+    width: calc(100% - 10px);
+    padding: 8px;
+    /* Increased padding for better touch targets */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Slightly increased border radius for a softer look */
+    vertical-align: middle;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    /* Added background transition */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #095484;
+    /* Focus border color */
+    background: #f0f8ff;
+    /* Light background on focus for better visibility */
+}
+
+
+input:hover,
+textarea:hover,
+select:hover {
+    border: 1px solid #095484;
+    background: #e6eef7;
+    /* Keep existing hover effect */
+}
+
+.question-answer label {
+    display: block;
+    padding: 5px 0;
+    /* Increased padding for better spacing */
+    font-size: 16px;
+    /* Increased font size for better readability */
+    font-weight: 500;
+    /* Increased font weight for emphasis */
+}
+
+
+.title-block select,
+.title-block input {
+    margin-bottom: 15px;
+    /* Increased margin for better spacing */
+}
+
+
+select {
+    padding: 7px 0;
+    background: transparent;
+    appearance: none;
+}
+
+select,
+table {
+    width: 100%;
+}
+
+.day-visited,
+.time-visited {
+    position: relative;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.day-visited i,
+.time-visited i {
+    right: 5px;
+    z-index: 1;
+    color: #a9a9a9;
+}
+
+.question-answer label {
+    display: block;
+    padding: 0 20px 10px 0;
+}
+
+th,
+td {
+    width: 18%;
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.first-col {
+    width: 25%;
+    text-align: left;
+}
+
+.btn-block {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (min-width: 568px) {
+    .title-block {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .title-block select {
+        width: 30%;
+    }
+
+    .title-block input {
+        width: 31%;
+    }
+}
